@@ -7,6 +7,9 @@
   justify-content: space-between;
   box-sizing: border-box;
 } 
+input{
+  padding: 0 20rpx;
+}
 image{
   max-width: 100%;
   max-height: 100%;
@@ -27,5 +30,5 @@ image{
   align-items: center;
 }
 view{
-  font-size: 23rpx;
+  font-size:30rpx;
 }

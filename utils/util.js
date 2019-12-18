@@ -20,7 +20,8 @@ const completion = ((rolu,str)=>{
 })
 
 const changeString = ((key,list)=>{
- let item =  list.forEach((item)=> item.id == key);
+ let item =  list.find((item)=> item.id == key);
+ console.log(list,item)
  return item.typeName
 })
 

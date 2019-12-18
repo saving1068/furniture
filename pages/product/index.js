@@ -40,6 +40,13 @@ Page({
     }
     this.getProduct(obj)
   },
+  search(e){
+    let obj = {
+      modelNo:e.detail.value,
+      pdType: this.data.ncType
+    }
+    this.getProduct(obj)
+  },
   share(){
     let selectId = [];
     this.data.selectList.forEach((item)=>{

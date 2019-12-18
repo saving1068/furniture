@@ -8,7 +8,8 @@ Page({
    */
   data: {
     detail:{},
-    nav:[]
+    nav:[],
+    id:0
   },  
 
   /**
@@ -16,28 +17,31 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id)
-    api.getSeries().then((res) => {
-        this.data.nav = res.data;
-    }).then(()=>{
-      this.getproductDetail(options.id)
-    })
-    
+    this.data.id = options.id
+     this.getSeries()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    // this.getproductDetail(this.data.id )
   },
-  getproductDetail(id){
+   getSeries(){
+    api.getSeries().then((res) => {
+      this.data.nav = res.data;
+      this.getproductDetail(this.data.id,res.web)
+      console.log(1111)
+    })   
+  },
+  getproductDetail(id,url){
     let obj = {
       id
     }
     api.productDetail(obj).then((res)=>{
-      console.log(res)
-      res.data.picUrl = util.completion(res.web, res.data.picUrl)
-      res.data.pdType = util.changeString(res.data.pdType,)
+      console.log(res,1111)
+      res.data.picUrl = util.completion(url, res.data.picUrl)
+      res.data.pdType = util.changeString(res.data.pdType, this.data.nav)
       this.setData({
         detail:res.data
       })
@@ -82,6 +86,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    let shareInfo = {
+      title: this.data.detail.pdType +'型号'+ this.data.detail.modelNo,
+      path: '../productDetail/index?id=' + this.data.id,
+      imageUrl: this.data.detail.picUrl
+    }
+    return shareInfo
   }
 })

@@ -1,10 +1,19 @@
 <!--pages/productDetail/index.wxml-->
 <view class="warp">
   <view class="detail">
-    <view class="image"></view>
-    <view class="title">
-      <view class="model"></view>
-      <view class="type"></view>
+    <view class="image center">
+      <image src='{{detail.picUrl}}'></image>
     </view>
+    <view class="title">
+      <view class="model">型号：{{detail.modelNo}}</view>
+      <view class="type">{{detail.pdType}}</view>
+    </view>
+  </view>
+</view>
+<view class="bottom space-around">
+  <view class="bottom-item">首页</view>
+  <view class="bottom-item">返回</view>
+  <view class="bottom-item" style="width:50%">
+    <button open-type="share" type="primary">分享</button>
   </view>
 </view>

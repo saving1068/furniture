@@ -79,14 +79,15 @@
     position: relative;
 }
 .addIcon{
-  position: absolute;
+  /* position: absolute;
   bottom: 100rpx;
-  right: 20rpx;
+  right: 20rpx; */
   width: 40rpx;
   height: 40rpx;
+  flex: 2;
 }
 .selec{
-   position: fixed;
+  position: fixed;
   bottom: 240rpx;
   left: 25rpx;
   width: 80rpx;

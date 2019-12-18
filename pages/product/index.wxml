@@ -9,7 +9,7 @@
           <view class="scroll-view-item{{index == navCurrent ? ' active' : ''}}" wx:for="{{navBar}}" wx:key="index" data-index="{{index}}" data-type="{{item.id}}" bindtap="navChange">{{item.typeName}}</view>
         </view>  
          <view class='seach'>
-          <input placeholder='请输入型号查找' confirm-type='search'  placeholder-class='place'></input>
+          <input placeholder='请输入型号查找' bindinput="search" confirm-type='search'  placeholder-class='place'></input>
           <icon type='search' color='#FFB911'></icon>
         </view>   
         </scroll-view>
@@ -20,11 +20,11 @@
         <view class='center' bindtap='getImage' data-url='{{item.picUrl}}'>
           <image class="img" mode="aspectFit"   src="{{item.picUrl}}"/>
         </view>
-        <view class='addIcon' wx:if='{{ifSelect}}' bindtap="pushShare"  data-item='{{item}}'>
-          <image  src='../../images/add.png'></image>
-        </view>
           <view class="title">
             <view style="flex:1;font-size:32rpx">型号{{item.modelNo}}</view>
+            <view class='addIcon center' wx:if='{{ifSelect}}' bindtap="pushShare"  data-item='{{item}}'>
+              <image mode="aspectFit" src='../../images/add.png'></image>
+            </view>
             <button type='primary' size='mini' data-id="{{item.id}}" bindtap="jump">进入详情</button>
           </view>
            <view class="detail">
