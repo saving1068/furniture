@@ -1,0 +1,16 @@
+<view class="warp">
+  <scroll-view scroll-y style="height:100%:">
+  <block wx:for='{{imageList}}' wx:key='{{index}}'>
+    <view class="item">
+      <view class="item-image"  >
+        <image mode="center" data-path="{{item.path}}" bindtap="getImage" src="{{item.path}}"></image>
+      </view>
+      <view class="detail">
+      <button size="mini"  type="primary">进入详情</button>  
+      </view>
+    </view>
+    
+  </block>
+</scroll-view>
+</view>
+

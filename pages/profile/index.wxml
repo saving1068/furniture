@@ -1,0 +1,5 @@
+<!-- <import src="../../wxParse/wxParse.wxml"/> -->
+<view class='container'>
+  公司简介
+  <!-- <template is="wxParse" data="{{wxParseData:content.nodes}}"></template> -->
+</view>

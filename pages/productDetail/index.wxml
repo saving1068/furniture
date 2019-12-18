@@ -1,0 +1,10 @@
+<!--pages/productDetail/index.wxml-->
+<view class="warp">
+  <view class="detail">
+    <view class="image"></view>
+    <view class="title">
+      <view class="model"></view>
+      <view class="type"></view>
+    </view>
+  </view>
+</view>

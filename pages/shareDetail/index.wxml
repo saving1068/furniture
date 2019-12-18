@@ -1,0 +1,17 @@
+<!--pages/shareDetail/index.wxml-->
+<view class="warp">
+  <view class="list">
+    <view class="item" wx:for='{{selectList}}' wx:key='index'>
+      <view class="image">
+        <image src="{{item.picUrl}}"></image>
+      </view>
+      <view class="detail">
+        <view class="modelNo">{{item.model}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="share">
+      <button bindtap="share" open-type="share" type="primary">分享至朋友</button>
+  </view>
+</view>
+

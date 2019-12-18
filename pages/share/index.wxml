@@ -1,0 +1,20 @@
+<!--pages/share/index.wxml-->
+<view class="warp">
+  <view class="title">
+    <input value="{{title}}" bindinput="getTitle"  placeholder="请输入分享标题"></input>
+  </view>
+  <view class="list">
+    <view class="item" wx:for='{{selectList}}' wx:key='index'>
+      <view class="image">
+        <image  src="{{item.picUrl}}"></image>
+      </view>
+      <view class="input">
+        <view class="model">{{item.modelNo}}</view>
+        <input bindinput="getItemTitle" data-index="{{index}}" value="{{item.explain}}" placeholder="请输入分享标语"></input>
+      </view>
+    </view>
+  </view>
+  <view class="share">
+    <button bindtap="share" type="primary">预览分享</button>
+  </view>
+</view>
