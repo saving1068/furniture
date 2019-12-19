@@ -21,12 +21,15 @@ Page({
     this.getAboutUs()
   },
   getAboutUs(){
+    wx.showLoading({
+      title: '加载中',
+    })
     api.getAboutUs({}).then((res)=>{
       res.data.picUrl = util.completion(res.web, res.data.picUrl)
       this.setData({
         detail:res.data
       })
-      
+      wx.hideLoading()
     })
   },
   openMap(){

@@ -18,13 +18,16 @@ Page({
     this.getIntro()
   },
   getIntro(){
+    wx.showLoading({
+      title: '加载中',
+    })
     let obj = {
 
     }
     api.getIntro(obj).then((res)=>{
       console.log(res)
       console.log(WxParse)
-      
+      wx.hideLoading()
       // let content = WxParse.wxParse('article', 'html', res.data, this, 5);
       // console.log(content)
     })
