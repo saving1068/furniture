@@ -9,8 +9,9 @@ let request = ({
   return new Promise((resolve, reject) => {
     //显示loading效果
     if (isShowLoading) {
-      wx.showToast({
-        title: '加载中'
+      wx.showLoading({
+        title: '加载中',
+        mask:true
       })
     }
     console.log(data)
@@ -26,7 +27,7 @@ let request = ({
           data: res.data.data,
           web: res.data.web
         }
-        resolve(obj)
+        resolve(res.data)
       },
       fail: function (err) {
 

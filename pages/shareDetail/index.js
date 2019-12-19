@@ -1,4 +1,6 @@
 // pages/shareDetail/index.js
+import api from "../../api/product.js"
+import util from '../../utils/util.js'
 Page({
 
   /**
@@ -6,15 +8,17 @@ Page({
    */
   data: {
     selectList: [
-      { picUrl: '../../images/product.png', modelNo: '沙发萨芬' },
-      { picUrl: '../../images/product.png', modelNo: '沙发萨芬' },
-      { picUrl: '../../images/product.png', modelNo: '沙发萨芬' }
-    ]
+      // { picUrl: '../../images/product.png', modelNo: '沙发萨芬' },
+      // { picUrl: '../../images/product.png', modelNo: '沙发萨芬' },
+      // { picUrl: '../../images/product.png', modelNo: '沙发萨芬' }
+    ],
+    psKey:'',
+    title:''
   },
   onShareAppMessage(res){
     let shareInfo = {
-      title:'的撒打算',
-      path:'../shareDetail/index',
+      title:this.data.title,
+      path: '../shareDetail/index?psKey=' + this.data.psKey,
       imageUrl:this.data.selectList[0].picUrl
     }
     return shareInfo
@@ -26,8 +30,24 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    this.data.psKey = options.psKey
+    let obj = {
+      psKey:options.psKey
+    }
+    this.getSelectList(obj)
   },
-
+  getSelectList(obj){
+    api.shareDetail(obj).then((res)=>{
+      console.log(res)
+      res.data.map(item => {
+        item.picUrl = util.completion(res.web, item.picUrl)
+      })
+      this.setData({
+        selectList: res.data,
+        title:res.title
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

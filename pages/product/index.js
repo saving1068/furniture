@@ -7,7 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navBar: [],
+    navBar: [
+      { typeName:'全部',id:''}
+    ],
     navCurrent: 0,
     list: [
     ],
@@ -32,7 +34,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(api)
+    console.log(options)
+    this.data.ncType = options.type||'';
+   
     this.getSeries()
     let obj = {
       pdType: this.data.ncType,
@@ -41,6 +45,7 @@ Page({
     this.getProduct(obj)
   },
   search(e){
+    this.data.list = [];
     let obj = {
       modelNo:e.detail.value,
       pdType: this.data.ncType
@@ -104,8 +109,16 @@ Page({
   },
   getSeries(){
     api.getSeries().then((res)=>{
+      let navBar = [...this.data.navBar];
+      res.data.forEach((item)=>{
+        navBar.push(item)
+      })
+      let index = navBar.findIndex((item) => item.id == this.data.ncType);
+      index = index != -1 ? index:0;
+
       this.setData({
-        navBar: res.data
+        navBar: navBar,
+        navCurrent:index
       })
     })
   },

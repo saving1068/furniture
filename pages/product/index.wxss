@@ -145,7 +145,7 @@
   width: 100%;
   display: flex;
   position: fixed;
-  height: 100rpx;
+  height: 80rpx;
   bottom: 0;
   background: #fff;
 }

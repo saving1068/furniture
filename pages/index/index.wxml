@@ -7,7 +7,7 @@
       >
       <swiper-item wx:for='{{swiperList}}' wx:key='index'>
       <view class='swiper-image'>
-         <image mode='center' src="{{item.picUrl}}"></image>
+         <image  src="{{item.picUrl}}"></image>
       </view>
        
       </swiper-item>
@@ -24,7 +24,7 @@
   </view>
   <view class='advert'></view>
   <view class="prodict">
-    <view class="prodict-item" wx:for='{{series}}' wx:key='index'>
+    <view class="prodict-item" wx:for='{{series}}' data-type="{{item.id}}" bindtap="goToProduct" wx:key='index'>
       <view class="name">{{item.typeName}}</view>
       <view class="item-image">
         <image src="{{item.typePic}}"></image>

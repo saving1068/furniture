@@ -7,27 +7,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imageList:[
-      {
-        path: '../../images/product.png'
-      },
-      {
-        path: '../../images/picture.png'
-      },
-      {
-        path: '../../images/profile.png'
-      },
-    ],
-    image:[
-      '../../images/product.png', '../../images/picture.png', '../../images/profile.png'
-    ]
+    imageList:[],
+    image:[],
+    total:0,
+    page:1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getImagesList(10,1)
+    this.getImagesList(10, this.data.page)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -41,7 +31,19 @@ Page({
     }
     api.getPictrue(obj).then((res)=>{
       res.data.map(item => {
-        item.typePic = util.completion(res.web, item.typePic)
+        item.picUrl = util.completion(res.web, item.picUrl)
+      })
+      let imageList = [...this.data.imageList];
+      let image = [...this.data.image];
+      res.data.forEach((item)=>{
+        imageList.push(item);
+        image.push(item.picUrl);
+      })
+
+      this.setData({
+        imageList: imageList,
+        image: image,
+        total:res.total
       })
       console.log(res)
     })
@@ -86,7 +88,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    if(this.data.imageList.length<this.data.total){
+      this.data.page++;
+      this.getImagesList(10, this.data.page)
+    }else{
+      wx.showToast({
+        title:'已经到底了'
+      })
+    }
+    
   },
 
   /**

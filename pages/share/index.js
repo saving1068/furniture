@@ -30,7 +30,7 @@ Page({
     this.data.title = e.detail.value;
   },
   getItemTitle(e){
-    this.data.selectList[e.currentTarget.dataset.index].title = e.detail.value;
+    this.data.selectList[e.currentTarget.dataset.index].explain = e.detail.value;
   },  
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -59,9 +59,9 @@ Page({
     }
     console.log(obj)
     api.shareInfo(obj).then((res)=>{
-      console.log(res)
+      console.log(res,213213)
       wx.navigateTo({
-        url: '../shareDetail/index?psKey=' + res.psKey
+        url: '../shareDetail/index?psKey=' + res.data.psKey
       })
     })
     

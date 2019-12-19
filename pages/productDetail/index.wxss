@@ -28,3 +28,6 @@
   width: 25%;
   text-align: center;
 }
+.bottom-item button{
+  width: 100%;
+}

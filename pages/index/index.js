@@ -3,12 +3,13 @@
 const app = getApp()
 import api from '../../api/index.js'
 import util from '../../utils/util.js'
+// const regeneratorRuntime = require('../../lib/regenerator-runtime/runtime')
 Page({
   data: {
-    swiperList:[
-     
+    swiperList: [
+
     ],
-    series:[]
+    series: []
   },
   //事件处理函数
   bindViewTap: function() {
@@ -16,14 +17,19 @@ Page({
       url: '../logs/logs'
     })
   },
-  goTo(e){
+  goTo(e) {
     console.log(e)
-      wx.navigateTo({
-        url: '../store/index?type=' + e.currentTarget.dataset.type
-      })
+    wx.navigateTo({
+      url: '../store/index?type=' + e.currentTarget.dataset.type
+    })
   },
-  getSeries(){
-    api.getSeries().then((res)=>{
+  goToProduct(e){
+    wx.reLaunch({
+      url: '../product/index?type='+e.currentTarget.dataset.type,
+    })
+  },
+  getSeries() {
+    api.getSeries().then((res) => {
       console.log(res)
       res.data.map(item => {
         item.typePic = util.completion(res.web, item.typePic)
@@ -31,30 +37,44 @@ Page({
       this.setData({
         series: res.data
       })
+      wx.hideLoading()
     })
   },
-  getSwiper(){
+ getSwiper() {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     let obj = {
-      limit:5,
-      page:1
+      limit: 5,
+      page: 1
     }
-  api.getSwiperList(obj).then((res)=>{
-    console.log(res, '1111')
-    res.data.map(item =>{
-      item.picUrl = util.completion(res.web, item.picUrl) 
-    })
-    
-    this.setData({
-      swiperList: res.data
-    })
-  })
- 
+    try {
+      api.getSwiperList(obj).then((res) => {
+        console.log(res, '1111')
+
+        res.data.map(item => {
+          item.picUrl = util.completion(res.web, item.picUrl)
+        })
+
+        this.setData({
+          swiperList: res.data
+        })
+
+
+      }).then(()=>{
+        this.getSeries()
+      })
+    } catch (e) {
+      
+    }
   },
-  onLoad: function () {
+  onLoad: function() {
+
     this.getSwiper()
-    this.getSeries()
+   
   },
   getUserInfo: function(e) {
-   
+
   }
 })

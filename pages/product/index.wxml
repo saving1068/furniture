@@ -53,9 +53,9 @@
         </scroll-view>
       
       <view class='selcetNum '>
-        <view style="font-size:25rpx;">{{selectList.length}}</view>
+       
         <view class='shareBtn'>
-          <button size='mini' bindtap="share" type="primary">提交</button>
+          <button size='mini' bindtap="share" type="primary">提交({{selectList.length}})</button>
         </view>
       </view>
     </view>

@@ -22,8 +22,36 @@ Page({
   },
   getAboutUs(){
     api.getAboutUs({}).then((res)=>{
+      res.data.picUrl = util.completion(res.web, res.data.picUrl)
+      this.setData({
+        detail:res.data
+      })
       
     })
+  },
+  openMap(){
+    let obj = {
+      latitude: 22.95,
+      longitude: 113.35,
+      scale:18,
+      name: this.data.detail.name,
+      address: this.data.detail.address
+    }
+    wx.openLocation({
+      ...obj,
+      success:((res)=>{
+        console.log(res)
+      }),
+      error:((e)=>{
+        console.log(e)
+      })
+    })
+  },
+  phoneCall(){
+    wx.makePhoneCall({
+      phoneNumber: '1340000' //仅为示例，并非真实的电话号码
+    })
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

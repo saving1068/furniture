@@ -1,11 +1,11 @@
 <import src="../../wxParse/wxParse.wxml"/>
 <view class="content">
   <view class='top'>
-    <image src="{{detail.imgUrl}}"></image>
+    <image src="{{detail.picUrl}}"></image>
   </view>
   <view class='phoneBox'>
       <view class='title'>{{detail.name}}</view>
-      <view class='addressBox'>
+      <view class='addressBox' bindtap="openMap">
         <view class="left">
           <view class='addressIcon' bindtap="navigation">
             <image src="../../images/us_icon_location@2x.png"></image>

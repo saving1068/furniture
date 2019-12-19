@@ -8,7 +8,9 @@ Page({
    */
   data: {
     imageList:[],
-    type:1
+    type:1,
+    page:1,
+    total:0
   },
   getImageList(e) {
     console.log(e)
@@ -29,21 +31,31 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  getImage(){
+  getImage(page){
+    wx.showLoading({
+      title: '加载中',
+      mask:true
+    })
     let obj = {
       imageType:this.data.type,
       limit:5,
-      page:1
+      page: page
     }
     api.getImageList(obj).then((res)=>{
      
       res.data.map(item => {
         item.picUrl = util.completion(res.web, item.picUrl) 
       })
+      let imageList = [...this.data.imageList];
+      res.data.forEach((item)=>{
+        imageList.push(item)
+      })
       console.log(res.data)
       this.setData({
-        imageList:res.data
+        imageList: imageList,
+        total: res.total
       })
+      wx.hideLoading()
     })
   },
   onLoad: function (options) {
@@ -52,7 +64,7 @@ Page({
     wx.setNavigationBarTitle({
       title: options.type == 1?'专卖店形象':'团队形象' ,
     })
-    this.getImage()
+    this.getImage(this.data.page)
   },
 
   /**
@@ -87,7 +99,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    if(this.data.imageList.length<this.data.total){
+      this.data.page++;
+      this.imageList(this.data.page)
+    }
   },
 
   /**

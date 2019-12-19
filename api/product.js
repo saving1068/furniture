@@ -29,7 +29,8 @@ const productDetail = (params) => {
   return api.request({ //
     url: 'product/detail',
     data: params,
-    method: 'GET'
+    method: 'GET',
+    isShowLoading:true
   })
 }
 
@@ -43,4 +44,12 @@ const shareInfo = (params) => {
     }
   })
 }
-export default { getProductList, getSeries, selectList, productDetail, shareInfo}
+const shareDetail = (params) => {
+  return api.request({ //
+    url: 'PreviewShare/list',
+    data: params,
+    method: 'GET',
+    isShowLoading: true
+  })
+}
+export default { getProductList, getSeries, selectList, productDetail, shareInfo, shareDetail}

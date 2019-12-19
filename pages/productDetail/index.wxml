@@ -11,8 +11,8 @@
   </view>
 </view>
 <view class="bottom space-around">
-  <view class="bottom-item">首页</view>
-  <view class="bottom-item">返回</view>
+  <view class="bottom-item" bindtap="goToIndex">首页</view>
+  <view class="bottom-item" bindtap="back">返回</view>
   <view class="bottom-item" style="width:50%">
     <button open-type="share" type="primary">分享</button>
   </view>

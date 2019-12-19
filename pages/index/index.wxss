@@ -33,6 +33,7 @@
    width: 300rpx; 
    height: 300rpx;
    background: crimson;
+   text-align: center;
 } 
 .prodict{
   padding: 20rpx 20rpx 0;
