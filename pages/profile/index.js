@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    content:''
+    content:'<div>1213sad撒多撒多多撒<div>'
   },
 
   /**
@@ -27,9 +27,10 @@ Page({
     api.getIntro(obj).then((res)=>{
       console.log(res)
       console.log(WxParse)
+      let that = this;
       wx.hideLoading()
-      // let content = WxParse.wxParse('article', 'html', res.data, this, 5);
-      // console.log(content)
+      let content = WxParse.wxParse('article', 'html', this.data.content, that, 5);
+      console.log(content)
     })
   },
   /**
