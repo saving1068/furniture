@@ -27,7 +27,8 @@ Page({
       // { coverUrl: '../../images/profile.png', title: '沙发萨芬' },
     ],
     page:1,
-    total:0
+    total:0,
+    keyWord:''
   },
 
   /**
@@ -40,16 +41,21 @@ Page({
     this.getSeries()
     let obj = {
       pdType: this.data.ncType,
-      page: this.data.page
+      page: this.data.page,
+      limit: 1,
+      keyWord: this.data.keyWord
     }
     this.getProduct(obj)
   },
   search(e){
     this.data.list = [];
     let obj = {
-      modelNo:e.detail.value,
-      pdType: this.data.ncType
+      keyWord:e.detail.value,
+      pdType: this.data.ncType,
+      limit: 1,
+      page:1
     }
+    this.data.keyWord = e.detail.value
     this.getProduct(obj)
   },
   share(){
@@ -134,6 +140,7 @@ Page({
         item.picUrl = util.completion(res.web, item.picUrl)
       })
       let list = [...this.data.list];
+      console.log(list,'11111111111111111')
       list = [...list,...res.data];
       list.forEach((item)=>{
         this.data.imageList.push(item.picUrl)
@@ -168,7 +175,9 @@ Page({
       })
       let obj = {
         pdType: e.currentTarget.dataset.type,
-        page: this.data.page
+        page: this.data.page,
+        limit: 1,
+        keyWord: this.data.keyWord
       }
       this.getProduct(obj)
 
@@ -229,7 +238,9 @@ Page({
       this.data.page++
       let obj = {
         pdType: this.data.ncType,
-        page: this.data.page
+        page: this.data.page,
+        limit:1,
+        keyWord: this.data.keyWord
       }
       this.getProduct(obj)
     }

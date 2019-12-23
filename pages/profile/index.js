@@ -25,12 +25,13 @@ Page({
 
     }
     api.getIntro(obj).then((res)=>{
-      console.log(res)
-      console.log(WxParse)
+      // console.log(res)
+      // console.log(WxParse)
+      this.data.content = res.data.intro;
       let that = this;
       wx.hideLoading()
       let content = WxParse.wxParse('article', 'html', this.data.content, that, 5);
-      console.log(content)
+      // console.log(content)
     })
   },
   /**

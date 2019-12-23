@@ -28,18 +28,21 @@ Page({
       res.data.picUrl = util.completion(res.web, res.data.picUrl)
       this.setData({
         detail:res.data
+        
       })
       wx.hideLoading()
     })
   },
   openMap(){
+    let { latitude, longitude } = util.bMapTransQQMap(this.data.detail.log, this.data.detail.lat)
     let obj = {
-      latitude: 22.95,
-      longitude: 113.35,
+      latitude,
+      longitude,
       scale:18,
       name: this.data.detail.name,
       address: this.data.detail.address
     }
+    console.log(obj)
     wx.openLocation({
       ...obj,
       success:((res)=>{
@@ -47,12 +50,15 @@ Page({
       }),
       error:((e)=>{
         console.log(e)
+      }),
+      complete:((e)=>{
+        console.log(e)
       })
     })
   },
   phoneCall(){
     wx.makePhoneCall({
-      phoneNumber: '1340000' //仅为示例，并非真实的电话号码
+      phoneNumber: this.data.detail.telphone //仅为示例，并非真实的电话号码
     })
 
   },
