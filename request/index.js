@@ -15,9 +15,9 @@ let request = ({
       })
     }
     console.log(data)
-    const baseUrl = 'http://2821r97k36.wicp.vip/mine/'
+    // const baseUrl = 'http://2821r97k36.wicp.vip/mine/'
     // const baseUrl = 'https://wearewwx.com/mine/';
-    // const baseUrl =  'http://39.108.177.239/mine/'
+    const baseUrl =  'http://39.108.177.239/mine/'
     wx.request({
       url: baseUrl+url,
       data,

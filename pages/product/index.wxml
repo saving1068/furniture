@@ -21,7 +21,10 @@
           <image class="img" mode="aspectFit"   src="{{item.picUrl}}"/>
         </view>
           <view class="title">
-            <view style="flex:1;font-size:32rpx">型号{{item.modelNo}}</view>
+            <view style="flex:1;font-size:32rpx">
+              <view>{{item.name}}</view>
+              <view>型号{{item.modelNo}}</view>
+           </view>
             <view class='addIcon center' wx:if='{{ifSelect}}' bindtap="pushShare"  data-item='{{item}}'>
               <image mode="aspectFit" src='../../images/add.png'></image>
             </view>

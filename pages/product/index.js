@@ -42,7 +42,7 @@ Page({
     let obj = {
       pdType: this.data.ncType,
       page: this.data.page,
-      limit: 1,
+      limit:3,
       keyWord: this.data.keyWord
     }
     this.getProduct(obj)
@@ -52,7 +52,7 @@ Page({
     let obj = {
       keyWord:e.detail.value,
       pdType: this.data.ncType,
-      limit: 1,
+      limit: 3,
       page:1
     }
     this.data.keyWord = e.detail.value
@@ -176,7 +176,7 @@ Page({
       let obj = {
         pdType: e.currentTarget.dataset.type,
         page: this.data.page,
-        limit: 1,
+        limit: 3,
         keyWord: this.data.keyWord
       }
       this.getProduct(obj)
@@ -234,12 +234,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    console.log(this.data.list.length, this.data.total)
     if (this.data.list.length < this.data.total){
       this.data.page++
       let obj = {
         pdType: this.data.ncType,
         page: this.data.page,
-        limit:1,
+        limit:3,
         keyWord: this.data.keyWord
       }
       this.getProduct(obj)

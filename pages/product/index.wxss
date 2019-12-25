@@ -71,12 +71,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+     
 }
 .box {
     /* width:330rpx; */
     width: 100%;
     margin-bottom: 36rpx;
     position: relative;
+    
+     
 }
 .addIcon{
   /* position: absolute;
@@ -106,7 +109,9 @@
     color: #1A1A1A;
     display: flex;
     justify-content: space-around;
-    align-items: center
+    align-items: center;
+    padding: 0 20rpx;
+    box-sizing: border-box;
 }
 .detail {
    
