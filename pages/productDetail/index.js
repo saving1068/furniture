@@ -30,6 +30,16 @@ Page({
       delta: 1
     })
   },
+  bigImage(e) {
+    wx.previewImage({
+      current: e.currentTarget.dataset.url, // 当前显示图片的http链接
+      urls: [e.currentTarget.dataset.url], // 需要预览的图片http链接列表
+      complete: ((e) => {
+        console.log(e)
+      })
+    })
+
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -49,7 +59,6 @@ Page({
     }
     api.productDetail(obj).then((res)=>{
       console.log(res,1111)
-      res.data.picUrl = util.completion(url, res.data.picUrl)
       res.data.pdType = util.changeString(res.data.pdType, this.data.nav)
       this.setData({
         detail:res.data

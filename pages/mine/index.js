@@ -20,12 +20,22 @@ Page({
   onLoad: function (options) {
     this.getAboutUs()
   },
+  bigImage(e) {
+    wx.previewImage({
+      current: this.data.detail.picUrl, // 当前显示图片的http链接
+      urls: [this.data.detail.picUrl], // 需要预览的图片http链接列表
+      complete: ((e) => {
+        console.log(e)
+      })
+    })
+
+  },
   getAboutUs(){
     wx.showLoading({
       title: '加载中',
     })
     api.getAboutUs({}).then((res)=>{
-      res.data.picUrl = util.completion(res.web, res.data.picUrl)
+      // res.data.picUrl = util.completion(res.web, res.data.picUrl)
       this.setData({
         detail:res.data
         

@@ -1,6 +1,6 @@
 <import src="../../wxParse/wxParse.wxml"/>
 <view class="content">
-  <view class='top'>
+  <view class='top' bindtap="bigImage">
     <image src="{{detail.picUrl}}"></image>
   </view>
   <view class='phoneBox'>

@@ -36,12 +36,22 @@ Page({
     }
     this.getSelectList(obj)
   },
+  bigImage(e){
+    wx.previewImage({
+      current: e.currentTarget.dataset.url, // 当前显示图片的http链接
+      urls: [e.currentTarget.dataset.url], // 需要预览的图片http链接列表
+      complete:((e)=>{
+        console.log(e)
+      })
+    })
+
+  },
   getSelectList(obj){
     api.shareDetail(obj).then((res)=>{
       console.log(res)
-      res.data.map(item => {
-        item.picUrl = util.completion(res.web, item.picUrl)
-      })
+      // res.data.map(item => {
+      //   item.picUrl = util.completion(res.web, item.picUrl)
+      // })
       this.setData({
         selectList: res.data,
         title:res.title

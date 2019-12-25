@@ -17,8 +17,8 @@
     <view class="no-data" wx:if="{{noData}}">暂无数据</view>
     <view class="box-container">
       <view class="box" wx:for="{{list}}" wx:key="id" >
-        <view class='center' bindtap='getImage' data-url='{{item.picUrl}}'>
-          <image class="img" mode="aspectFit"   src="{{item.picUrl}}"/>
+        <view class='center' bindtap='getImage' data-url='{{item.picUrl[0]}}'>
+          <image class="img" mode="aspectFit"   src="{{item.picUrl[0]}}"/>
         </view>
           <view class="title">
             <view style="flex:1;font-size:32rpx">
@@ -50,7 +50,7 @@
           <view class="reduce">
             <image src="../../images/jian.png" bindtap="reduce" data-item="item"></image>
           </view>
-          <image  src="{{item.picUrl}}"></image>
+          <image  src="{{item.picUrl[0]}}"></image>
         </view>
       </view>
         </scroll-view>

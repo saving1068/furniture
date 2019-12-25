@@ -37,9 +37,9 @@ Page({
    */
   getSelectList(obj){
     api.selectList(obj).then((res) => {
-      console.log(res)
+      console.log(res,"222222222")
       res.data.map(item => {
-        item.picUrl = util.completion(res.web, item.picUrl)
+        item.picUrl = item.picUrl[0]
         item.explain = ''
       })
       this.setData({

@@ -2,6 +2,7 @@
 .warp{
   padding: 0 20rpx;
 }
+
 .item{
   margin-top: 20rpx;
   text-align: center;

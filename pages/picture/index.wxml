@@ -1,13 +1,10 @@
 <view class="warp">
-  <scroll-view scroll-y style="height:100%:">
   <block wx:for='{{imageList}}' wx:key='index'>
     <view class="item">
       <view class="item-image"  >
-        <image mode="aspectFit"  data-path="{{item.picUrl}}" bindtap="getImage" src="{{item.picUrl}}"></image>
+        <image mode="aspectFit"  data-path="{{item}}" bindtap="getImage" src="{{item}}"></image>
       </view>
     </view>
-    
   </block>
-</scroll-view>
 </view>
 

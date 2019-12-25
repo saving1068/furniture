@@ -3,8 +3,8 @@
   <view class="center">{{title}}</view>
   <view class="list">
     <view class="item" wx:for='{{selectList}}' wx:key='index'>
-      <view class="image center">
-        <image src="{{item.picUrl}}"></image>
+      <view class="image center" bindtap="bigImage" data-url='item.picUrl'>
+        <image   src="{{item.picUrl}}"></image>
       </view>
       <view class="detail  center">
         <!-- <view class="modelNo">{{item.modelNo}}</view> -->

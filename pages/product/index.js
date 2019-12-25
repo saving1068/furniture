@@ -89,7 +89,7 @@ Page({
     })
   },
   pushShare(e){
-    let item = this.data.selectList.find((item) => item.picUrl == e.currentTarget.dataset.item.picUrl);
+    let item = this.data.selectList.find((item) => item.picUrl == e.currentTarget.dataset.item.picUrl[0]);
     let select = [...this.data.selectList];
     console.log(e.currentTarget.dataset)
     console.log(item)
@@ -136,14 +136,12 @@ Page({
     })
     console.log(obj)
     api.getProductList(obj).then((res) => {
-      res.data.map(item => {
-        item.picUrl = util.completion(res.web, item.picUrl)
-      })
+     
       let list = [...this.data.list];
       console.log(list,'11111111111111111')
       list = [...list,...res.data];
       list.forEach((item)=>{
-        this.data.imageList.push(item.picUrl)
+        this.data.imageList.push(item.picUrl[0])
       })
       console.log(list)
       this.setData({
