@@ -13,7 +13,7 @@
       </swiper-item>
     </swiper>
   </view>
-  <view class='advert'></view>
+  <!-- <view class='advert'></view>
   <view class="look-warp">
     <view class="store look-item" bindtap="goTo" data-type='1'>
       专卖店形象
@@ -21,13 +21,12 @@
     <view class="team look-item" bindtap="goTo" data-type='2'>
       团队形象
     </view>
-  </view>
-  <view class='advert'></view>
+  </view> -->
   <view class="prodict">
     <view class="prodict-item" wx:for='{{series}}' data-type="{{item.id}}" bindtap="goToProduct" wx:key='index'>
       <view class="name">{{item.typeName}}</view>
       <view class="item-image">
-        <image src="{{item.typePic}}"></image>
+        <image  src="{{item.typePic}}"></image>
       </view>
     </view>
   </view>

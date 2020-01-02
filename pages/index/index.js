@@ -31,9 +31,9 @@ Page({
   getSeries() {
     api.getSeries().then((res) => {
       console.log(res)
-      res.data.map(item => {
-        item.typePic = util.completion(res.web, item.typePic)
-      })
+      // res.data.map(item => {
+      //   item.typePic = util.completion(res.web, item.typePic)
+      // })
       this.setData({
         series: res.data
       })
@@ -53,9 +53,9 @@ Page({
       api.getSwiperList(obj).then((res) => {
         console.log(res, '1111')
 
-        res.data.map(item => {
-          item.picUrl = util.completion(res.web, item.picUrl)
-        })
+        // res.data.map(item => {
+        //   item.picUrl = util.completion(res.web, item.picUrl)
+        // })
 
         this.setData({
           swiperList: res.data

@@ -5,8 +5,8 @@
   </view>
   <view class='phoneBox'>
       <view class='title'>{{detail.name}}</view>
-      <view class='addressBox' bindtap="openMap">
-        <view class="left">
+      <view class='addressBox' >
+        <view class="left" bindtap="openMap">
           <view class='addressIcon' bindtap="navigation">
             <image src="../../images/us_icon_location@2x.png"></image>
           </view>

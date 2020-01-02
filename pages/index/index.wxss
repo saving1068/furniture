@@ -2,7 +2,7 @@
 .swiper{
   width: 100%;
   height: 350rpx;
-  background: salmon;
+  /* background: salmon; */
 }
 .swiper swiper{
   width: 100%;
@@ -17,8 +17,10 @@
 }
 .advert{
   width: 100%;
-  height: 250rpx;
-  background: skyblue;
+  height: 90rpx;
+  background: #FFB911;
+  color: #fff;
+  font-size: 44rpx;
 }
 .look-warp{
   width: 100%;
@@ -32,7 +34,7 @@
 .look-item{
    width: 300rpx; 
    height: 300rpx;
-   background: crimson;
+  
    text-align: center;
 } 
 .prodict{
@@ -48,5 +50,5 @@
 .item-image{
   height: 350rpx;
   margin-top: 20rpx;
-  background: chartreuse;
+ 
 }

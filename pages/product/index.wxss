@@ -1,11 +1,14 @@
 .container {
-    padding: 130rpx 20rpx 100rpx ;
+    padding: 185rpx 20rpx 100rpx ;
+    
 }
+
 .seach{
   width: 100%;
-  padding-top: 10rpx;
+  padding: 10rpx 0;
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
+  align-items: center;
 }
 .seach input{
   width: 600rpx;
@@ -68,17 +71,18 @@
     background: #FFB911;
 }
 .box-container {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-     
+    background: rgba(333,333,33,.02);
 }
 .box {
     /* width:330rpx; */
     width: 100%;
     margin-bottom: 36rpx;
     position: relative;
-    
+    background: #fff;
      
 }
 .addIcon{
@@ -102,6 +106,7 @@
 }
 .img {
     border-radius:10rpx;
+    height: 350rpx;
 }
 .title {
     margin: 14rpx 0;
@@ -125,8 +130,12 @@
 }
 .no-data {
   text-align: center;
-  font-size: 24rpx;
+  font-size: 32rpx;
   color: #999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 
 }.spec {
   position: relative;

@@ -46,3 +46,7 @@
 .bottom-item button{
   width: 100%;
 }
+.text{
+  text-align: center;
+  padding: 10rpx 0;
+}

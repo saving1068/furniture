@@ -1,5 +1,4 @@
 <view class="container">
-  
     <view class="nav">
         <scroll-view
             style="width: auto;overflow:hidden;"
@@ -9,8 +8,8 @@
           <view class="scroll-view-item{{index == navCurrent ? ' active' : ''}}" wx:for="{{navBar}}" wx:key="index" data-index="{{index}}" data-type="{{item.id}}" bindtap="navChange">{{item.typeName}}</view>
         </view>  
          <view class='seach'>
-          <input placeholder='请输入型号查找' bindinput="search" confirm-type='search'  placeholder-class='place'></input>
-          <icon type='search' color='#FFB911'></icon>
+          <input placeholder='请输入型号查找' confirm-type='search'  placeholder-class='place'></input>
+          <icon type='search' bindtap="seach" size="30" color='#FFB911'></icon>
         </view>   
         </scroll-view>
     </view>
@@ -22,8 +21,8 @@
         </view>
           <view class="title">
             <view style="flex:1;font-size:32rpx">
-              <view>{{item.name}}</view>
-              <view>型号{{item.modelNo}}</view>
+              <view>名称:{{item.name}}</view>
+              <view>型号:{{item.modelNo}}</view>
            </view>
             <view class='addIcon center' wx:if='{{ifSelect}}' bindtap="pushShare"  data-item='{{item}}'>
               <image mode="aspectFit" src='../../images/add.png'></image>
@@ -62,5 +61,5 @@
         </view>
       </view>
     </view>
-    <view class="no-data" wx:for="{{navBar}}" wx:key="index" wx:if="{{ !noData && item.id==ncType && noData}}">没有更多数据了</view>
 </view>
+<view class="no-data"  wx:key="index" wx:if="{{list.length==0}}">没有更多数据了</view>

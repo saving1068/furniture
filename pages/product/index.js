@@ -55,6 +55,7 @@ Page({
       limit: 3,
       page:1
     }
+    this.data.page = 1;
     this.data.keyWord = e.detail.value
     this.getProduct(obj)
   },
@@ -173,10 +174,11 @@ Page({
       })
       let obj = {
         pdType: e.currentTarget.dataset.type,
-        page: this.data.page,
+        page: 1,
         limit: 3,
         keyWord: this.data.keyWord
       }
+      this.data.page = 1;
       this.getProduct(obj)
 
     }else{

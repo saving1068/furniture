@@ -6,10 +6,11 @@
   <view class="list">
     <view class="item" wx:for='{{selectList}}' wx:key='index'>
       <view class="image">
-        <image  src="{{item.picUrl}}"></image>
+        <image mode="aspectFit" src="{{item.picUrl}}"></image>
       </view>
       <view class="input">
-        <view class="model">{{item.modelNo}}</view>
+        <view class="model">名称:{{item.name}}</view>
+        <view class="model">型号:{{item.modelNo}}</view>
         <input bindinput="getItemTitle" data-index="{{index}}" value="{{item.explain}}" placeholder="请输入分享标语"></input>
       </view>
     </view>
