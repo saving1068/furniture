@@ -10,7 +10,7 @@
       </view>
       <view class="input">
         <view class="model">名称:{{item.name}}</view>
-        <view class="model">型号:{{item.modelNo}}</view>
+        <view class="model">编号:{{item.modelNo}}</view>
         <input bindinput="getItemTitle" data-index="{{index}}" value="{{item.explain}}" placeholder="请输入分享标语"></input>
       </view>
     </view>

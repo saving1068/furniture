@@ -56,7 +56,19 @@ Page({
       page:1
     }
     this.data.page = 1;
-    this.data.keyWord = e.detail.value
+    this.data.keyWord = e.detail.value;
+    console.log(obj)
+    this.getProduct(obj)
+  },
+  searchALL(){
+    this.data.list = [];
+    let obj = {
+      keyWord: this.data.keyWord,
+      pdType: this.data.ncType,
+      limit: 3,
+      page: 1
+    }
+    this.data.page = 1;
     this.getProduct(obj)
   },
   share(){
