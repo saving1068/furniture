@@ -1,14 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/product/index",
+    "pages/pdct/index",
     
     "pages/profile/index",
     "pages/picture/index",
     "pages/mine/index",
     "pages/store/index",
     "pages/team/index",
-    "pages/productDetail/index",
+    "pages/pdctDetail/index",
     "pages/share/index",
     "pages/shareDetail/index"
   ],
@@ -36,7 +36,7 @@
         "selectedIconPath": "./images/profile-active.png"
       },
       {
-        "pagePath": "pages/product/index",
+        "pagePath": "pages/pdct/index",
         "text": "产品分类",
         "iconPath": "./images/product.png",
         "selectedIconPath": "./images/product-active.png"

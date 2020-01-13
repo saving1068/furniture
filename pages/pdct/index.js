@@ -1,5 +1,5 @@
-// pages/product/index.js
-import api from "../../api/product.js"
+// pages/furniture/index.js
+import api from "../../api/pdct.js"
 import util from '../../utils/util.js'
 Page({
 
@@ -45,7 +45,7 @@ Page({
       limit:3,
       keyWord: this.data.keyWord
     }
-    this.getProduct(obj)
+    this.getfurniture(obj)
   },
   search(e){
     this.data.list = [];
@@ -57,7 +57,7 @@ Page({
     }
     this.data.page = 1;
     this.data.keyWord = e.detail.value
-    this.getProduct(obj)
+    this.getfurniture(obj)
   },
   share(){
     let selectId = [];
@@ -129,14 +129,14 @@ Page({
       })
     })
   },
-  getProduct(obj){
+  getfurniture(obj){
     this.data.canClick =false;
     wx.showLoading({
       title: '加载中',
       mask:true
     })
     console.log(obj)
-    api.getProductList(obj).then((res) => {
+    api.getfurnitureList(obj).then((res) => {
      
       let list = [...this.data.list];
       console.log(list,'11111111111111111')
@@ -179,7 +179,7 @@ Page({
         keyWord: this.data.keyWord
       }
       this.data.page = 1;
-      this.getProduct(obj)
+      this.getfurniture(obj)
 
     }else{
       wx.showToast({
@@ -191,7 +191,7 @@ Page({
   jump(e) {
     let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: "../productDetail/index?id=" + id
+      url: "../pdctDetail/index?id=" + id
     })
   },
 
@@ -243,7 +243,7 @@ Page({
         limit:3,
         keyWord: this.data.keyWord
       }
-      this.getProduct(obj)
+      this.getfurniture(obj)
     }
     
     

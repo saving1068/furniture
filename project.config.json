@@ -55,9 +55,9 @@
 			"current": -1,
 			"list": [
 				{
-					"id": -1,
-					"name": "pages/product/index",
-					"pathName": "pages/product/index",
+					"id": 0,
+					"name": "pages/pdct/index",
+					"pathName": "pages/pdct/index",
 					"query": "",
 					"scene": null
 				},
@@ -93,6 +93,7 @@
 					"id": -1,
 					"name": "pages/mine/index",
 					"pathName": "pages/mine/index",
+					"query": "",
 					"scene": null
 				}
 			]

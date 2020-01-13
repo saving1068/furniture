@@ -1,5 +1,5 @@
 // pages/shareDetail/index.js
-import api from "../../api/product.js"
+import api from "../../api/pdct.js"
 import util from '../../utils/util.js'
 Page({
 

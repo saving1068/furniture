@@ -2,16 +2,16 @@ import api from '../request/index.js'
 
 const getSeries = (params) => {
   return api.request({
-    url: 'productType/list',
+    url: 'furnitureType/list',
     data: params,
     method: 'GET'
   })
 }
 
-const getProductList = (params) => {
+const getfurnitureList = (params) => {
   console.log(params)
  return api.request({
-   url:'product/list',
+   url:'furniture/list',
    data:{...params},
    method: 'GET',
   })
@@ -19,15 +19,15 @@ const getProductList = (params) => {
 }
 const selectList = (params) => {
   return api.request({ //
-    url: 'product/list',
+    url: 'furniture/list',
     data: params,
     method: 'GET'
   })
 }
 
-const productDetail = (params) => {
+const furnitureDetail = (params) => {
   return api.request({ //
-    url: 'product/detail',
+    url: 'furniture/detail',
     data: params,
     method: 'GET',
     isShowLoading:true
@@ -52,4 +52,4 @@ const shareDetail = (params) => {
     isShowLoading: true
   })
 }
-export default { getProductList, getSeries, selectList, productDetail, shareInfo, shareDetail}
+export default { getfurnitureList, getSeries, selectList, furnitureDetail, shareInfo, shareDetail}

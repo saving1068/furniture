@@ -23,9 +23,9 @@ Page({
       url: '../store/index?type=' + e.currentTarget.dataset.type
     })
   },
-  goToProduct(e){
+  goToPdct(e){
     wx.reLaunch({
-      url: '../product/index?type='+e.currentTarget.dataset.type,
+      url: '../pdct/index?type='+e.currentTarget.dataset.type,
     })
   },
   getSeries() {

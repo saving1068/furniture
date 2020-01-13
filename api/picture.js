@@ -19,7 +19,7 @@ const getPictrue = (params) => {
 
 const setSelectList = (params) => { 
   return api.request({ //
-    url: 'product/list',
+    url: 'furniture/list',
     data: params,
     method: 'GET',
   })

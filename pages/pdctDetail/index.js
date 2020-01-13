@@ -1,5 +1,5 @@
-// pages/productDetail/index.js
-import api from "../../api/product.js"
+// pages/furnitureDetail/index.js
+import api from "../../api/pdct.js"
 import util from '../../utils/util.js'
 Page({
 
@@ -44,20 +44,20 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    // this.getproductDetail(this.data.id )
+    // this.getfurnitureDetail(this.data.id )
   },
    getSeries(){
     api.getSeries().then((res) => {
       this.data.nav = res.data;
-      this.getproductDetail(this.data.id,res.web)
+      this.getfurnitureDetail(this.data.id,res.web)
       console.log(1111)
     })   
   },
-  getproductDetail(id,url){
+  getfurnitureDetail(id,url){
     let obj = {
       id
     }
-    api.productDetail(obj).then((res)=>{
+    api.furnitureDetail(obj).then((res)=>{
       console.log(res,1111)
       res.data.pdType = util.changeString(res.data.pdType, this.data.nav)
       this.setData({
@@ -106,7 +106,7 @@ Page({
   onShareAppMessage: function () {
     let shareInfo = {
       title: this.data.detail.pdType +'型号'+ this.data.detail.modelNo,
-      path: '../productDetail/index?id=' + this.data.id,
+      path: '../pdctDetail/index?id=' + this.data.id,
       imageUrl: this.data.detail.picUrl
     }
     return shareInfo

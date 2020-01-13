@@ -9,7 +9,7 @@ const getSwiperList = (params) =>{
 
 const getSeries = (params) =>{
   return api.request({
-    url:'productType/list',
+    url:'furnitureType/list',
     data: params,
     method: 'GET'
   })
