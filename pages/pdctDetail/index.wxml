@@ -15,10 +15,10 @@
       </swiper>
     </view>
     <view class="title">
-      <view class="model">型号：{{detail.modelNo}}</view>
+      <view class="model">编号:{{detail.modelNo}}</view>
       <view class="type">{{detail.pdType}}</view>
     </view>
-    <view class="text">商品详情</view>
+    <view class="text">详情</view>
     <view class="detail">
       <view>{{detail.name}}</view>
       <view>{{detail.description}}</view>
