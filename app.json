@@ -23,7 +23,7 @@
     "selectedColor": "#FFB911",
     "list": [
       {
-        "pagePath": "pages/product/index",
+        "pagePath": "pages/pdct/index",
         "text": "分类",
         "iconPath": "./images/product.png",
         "selectedIconPath": "./images/product-active.png"
